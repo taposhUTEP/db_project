@@ -81,18 +81,38 @@
                                 </li>
 
                                 <li <?php echo (CURRENT_PAGE == "customers.php" || CURRENT_PAGE == "add_customer.php") ? 'class="active"' : ''; ?>>
-                                    <a href="#"><i class="fa fa-user-circle fa-fw"></i> Customers<span class="fa arrow"></span></a>
+                                    <a href="#"><i class="fa fa-file fa-fw"></i> Reports<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-list fa-fw"></i>List all</a>
+                                            <a href="customers.php"><i class="fa fa-suitcase fa-fw"></i>Airport</a>
                                         </li>
-                                    <li>
-                                        <a href="add_customer.php"><i class="fa fa-plus fa-fw"></i>Add New</a>
-                                    </li>
+                                        <li>
+                                            <a href="customers.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
+                                        </li>
+                                        <li>
+                                            <a href="customers.php"><i class="fa fa-user fa-fw"></i>Employee</a>
+                                        </li>
+                                        <li>
+                                            <a href="customers.php"><i class="fa fa-group fa-fw"></i>Team </a>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="admin_users.php"><i class="fa fa-users fa-fw"></i> Users</a>
+                                <li <?php echo (CURRENT_PAGE == "customers.php" || CURRENT_PAGE == "add_customer.php") ? 'class="inactive"' : ''; ?>>
+                                    <a href="#"><i class="fa fa-plus fa-fw"></i> Add New <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="add_customer.php"><i class="fa fa-suitcase fa-fw"></i>Airport</a>
+                                        </li>
+                                        <li>
+                                            <a href="add_customer.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
+                                        </li>
+                                        <li>
+                                            <a href="add_customer.php"><i class="fa fa-user fa-fw"></i>Employee</a>
+                                        </li>
+                                        <li>
+                                            <a href="customers.php"><i class="fa fa-group fa-fw"></i>Team </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

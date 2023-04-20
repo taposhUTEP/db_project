@@ -29,7 +29,7 @@ include_once('includes/header.php');
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge"><?php echo $numCustomers; ?></div>
-                            <div>Customers</div>
+                            <div>Employees</div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ include_once('includes/header.php');
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">12</div>
-                            <div>New Tasks!</div>
+                            <div>Teams Working</div>
                         </div>
                     </div>
                 </div>
