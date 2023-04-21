@@ -11,19 +11,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $data_to_store = array_filter($_POST);
 
     $db = getDbInstance();
-//    $year_mont_day = explode('-', $data_to_store['PEbdate']);
-//    $data_to_store['PEbyear'] = $year_mont_day[0];
-//    $data_to_store['PEbmonth'] = $year_mont_day[1];
-//    $data_to_store['PEbday'] = $year_mont_day[2];
-//    unset($data_to_store['PEbdate']);
-//    print_r($data_to_store); 
+    $year_mont_day = explode('-', $data_to_store['PEbdate']);
+    $data_to_store['PEbyear'] = $year_mont_day[0];
+    $data_to_store['PEbmonth'] = $year_mont_day[1];
+    $data_to_store['PEbday'] = $year_mont_day[2];
+    unset($data_to_store['PEbdate']);
+    print_r($data_to_store); 
 
     $last_id = $db->insert('personnel', $data_to_store);
 
     if($last_id)
     {
     	$_SESSION['success'] = "personnel added successfully!";
-    	header('location: personnel.php');
+    	header('location: personnels.php');
     	exit();
     }
     else
