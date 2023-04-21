@@ -84,16 +84,16 @@
                                     <a href="#"><i class="fa fa-file fa-fw"></i> Reports<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-suitcase fa-fw"></i>Airport</a>
+                                            <a href="airports.php"><i class="fa fa-suitcase fa-fw"></i>Airport</a>
                                         </li>
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
+                                            <a href="planes.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
                                         </li>
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-user fa-fw"></i>Personnel</a>
+                                            <a href="personnels.php"><i class="fa fa-user fa-fw"></i>Personnel</a>
                                         </li>
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-group fa-fw"></i>Team </a>
+                                            <a href="teams.php"><i class="fa fa-group fa-fw"></i>Team </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -101,16 +101,16 @@
                                     <a href="#"><i class="fa fa-plus fa-fw"></i> Add New <span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
                                         <li>
-                                            <a href="add_customer.php"><i class="fa fa-suitcase fa-fw"></i>Airport</a>
+                                            <a href="add_airport.php"><i class="fa fa-suitcase fa-fw"></i>Airport</a>
                                         </li>
                                         <li>
-                                            <a href="add_customer.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
+                                            <a href="add_plane.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
                                         </li>
                                         <li>
-                                            <a href="add_customer.php"><i class="fa fa-user fa-fw"></i>Personnel</a>
+                                            <a href="add_personnel.php"><i class="fa fa-user fa-fw"></i>Personnel</a>
                                         </li>
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-group fa-fw"></i>Team </a>
+                                            <a href="add_team.php"><i class="fa fa-group fa-fw"></i>Team </a>
                                         </li>
                                     </ul>
                                 </li>

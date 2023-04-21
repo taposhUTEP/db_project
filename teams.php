@@ -58,7 +58,7 @@ include BASE_PATH . '/includes/header.php';
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="page-header">teams</h1>
+            <h1 class="page-header">Teams</h1>
         </div>
         <div class="col-lg-6">
             <div class="page-action-links text-right">
@@ -93,7 +93,7 @@ include BASE_PATH . '/includes/header.php';
                 <td><?php echo xss_clean($row['Tairport_code']); ?></td>
                 <td><?php echo xss_clean($row['Tgate']); ?></td>
                 <td>
-                    <a href="edit_customer.php?customer_id=<?php echo $row['id']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="edit_team.php?Tcode=<?php echo $row['Tcode']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                     <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['Tcode']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
