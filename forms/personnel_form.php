@@ -1,62 +1,39 @@
 <fieldset>
     <div class="form-group">
-        <label for="f_name">First Name *</label>
-          <input type="text" name="f_name" value="<?php echo htmlspecialchars($edit ? $customer['f_name'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="First Name" class="form-control" required="required" id = "f_name" >
+        <label for="Pessn">PEssn *</label>
+          <input type="text" name="PEssn" value="<?php echo htmlspecialchars($edit ? $personnel['PEssn'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="PEssn" class="form-control" required="required" id = "PEssn" >
     </div> 
 
     <div class="form-group">
-        <label for="l_name">Last name *</label>
-        <input type="text" name="l_name" value="<?php echo htmlspecialchars($edit ? $customer['l_name'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Last Name" class="form-control" required="required" id="l_name">
+        <label for="PEfname">First Name *</label>
+        <input type="text" name="PEfname" value="<?php echo htmlspecialchars($edit ? $personnel['PEfname'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="First Name" class="form-control" required="required" id="PEfname">
+    </div> 
+
+    <div class="form-group">
+        <label for="PElname">Last Name *</label>
+        <input type="text" name="PElname" value="<?php echo htmlspecialchars($edit ? $personnel['PElname'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Last Name" class="form-control" required="required" id="PElname">
+    </div> 
+
+    <div class="form-group">
+        <label for="PEstatus">Status *</label>
+        <input type="text" name="PEstatus" value="<?php echo htmlspecialchars($edit ? $personnel['PEstatus'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Status" class="form-control" required="required" id="PEstatus">
+    </div> 
+
+    <div class="form-group">
+        <label for="PEbdate">Birthdate *</label>
+        <input type="date" name="PEbdate" value="<?php echo htmlspecialchars($edit ? $personnel['PEbdate'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Birthdate" class="form-control" required="required" id="PEbdate">
     </div> 
 
     <div class="form-group">
         <label>Gender * </label>
         <label class="radio-inline">
-            <input type="radio" name="gender" value="male" <?php echo ($edit &&$customer['gender'] =='male') ? "checked": "" ; ?> required="required"/> Male
+            <input type="radio" name="PEgender" value="male" <?php echo ($edit &&$personnel['PEgender'] =='male') ? "checked": "" ; ?> required="required"/> Male
         </label>
         <label class="radio-inline">
-            <input type="radio" name="gender" value="female" <?php echo ($edit && $customer['gender'] =='female')? "checked": "" ; ?> required="required" id="female"/> Female
+            <input type="radio" name="PEgender" value="female" <?php echo ($edit && $personnel['PEgender'] =='female')? "checked": "" ; ?> required="required" id="female"/> Female
         </label>
     </div>
 
-    <div class="form-group">
-        <label for="address">Address</label>
-          <textarea name="address" placeholder="Address" class="form-control" id="address"><?php echo htmlspecialchars(($edit) ? $customer['address'] : '', ENT_QUOTES, 'UTF-8'); ?></textarea>
-    </div> 
-    
-    <div class="form-group">
-        <label>State </label>
-           <?php $opt_arr = array("Maharashtra", "Kerala", "Madhya pradesh"); 
-                            ?>
-            <select name="state" class="form-control selectpicker" required>
-                <option value=" " >Please select your state</option>
-                <?php
-                foreach ($opt_arr as $opt) {
-                    if ($edit && $opt == $customer['state']) {
-                        $sel = "selected";
-                    } else {
-                        $sel = "";
-                    }
-                    echo '<option value="'.$opt.'"' . $sel . '>' . $opt . '</option>';
-                }
-
-                ?>
-            </select>
-    </div>  
-    <div class="form-group">
-        <label for="email">Email</label>
-            <input  type="email" name="email" value="<?php echo htmlspecialchars($edit ? $customer['email'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="E-Mail Address" class="form-control" id="email">
-    </div>
-
-    <div class="form-group">
-        <label for="phone">Phone</label>
-            <input name="phone" value="<?php echo htmlspecialchars($edit ? $customer['phone'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="987654321" class="form-control"  type="text" id="phone">
-    </div> 
-
-    <div class="form-group">
-        <label>Date of birth</label>
-        <input name="date_of_birth" value="<?php echo htmlspecialchars($edit ? $customer['date_of_birth'] : '', ENT_QUOTES, 'UTF-8'); ?>"  placeholder="Birth date" class="form-control"  type="date">
-    </div>
 
     <div class="form-group text-center">
         <label></label>

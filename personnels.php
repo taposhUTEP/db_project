@@ -128,7 +128,7 @@ if ($order_by == 'Desc') {
                 <td><?php echo xss_clean($row['PEsalary']); ?></td>
                 <td><?php echo xss_clean($row['PEstatus']); ?></td>
                 <td>
-                    <a href="edit_customer.php?customer_id=<?php echo $row['id']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="edit_personnel.php?PEssn=<?php echo $row['PEssn']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                     <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['PEssn']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
