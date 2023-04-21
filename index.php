@@ -55,7 +55,7 @@ include_once('includes/header.php');
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="teams.php">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -77,7 +77,7 @@ include_once('includes/header.php');
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="planes.php">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
