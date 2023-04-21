@@ -31,7 +31,7 @@ if (!$order_by) {
 
 //Get DB instance. i.e instance of MYSQLiDB Library
 $db = getDbInstance();
-$select = array('PLcode', 'PLtype', 'PLgate', 'PLmin_clean_time', 'PLmax_clean_time', 'PLairport_code', 
+$select = array('PLcode', 'PLtype', 'PLgate', 'PLairport_code', 
                 'SERservice_number', 'SERduration', 'SERdate', 'Tcode');
 
 //Start building query according to input parameters.
@@ -80,8 +80,6 @@ include BASE_PATH . '/includes/header.php';
                 <th width="10%">Plane Code</th>
                 <th width="5%">Type</th>
                 <th width="5%">Gate</th>
-                <th width="10%">Min Cl. Time</th>
-                <th width="10%">Max Cl. Time</th>
                 <th width="10%">Airport Code</th>
                 <th width="10%">Ser. Num</th>
                 <th width="10%">Ser. Duration</th>
@@ -96,15 +94,13 @@ include BASE_PATH . '/includes/header.php';
                 <td><?php echo $row['PLcode']; ?></td>
                 <td><?php echo xss_clean($row['PLtype']); ?></td>
                 <td><?php echo xss_clean($row['PLgate']); ?></td>
-                <td><?php echo xss_clean($row['PLmin_clean_time']); ?></td>
-                <td><?php echo xss_clean($row['PLmax_clean_time']); ?></td>
                 <td><?php echo xss_clean($row['PLairport_code']); ?></td>
                 <td><?php echo xss_clean($row['SERservice_number']); ?></td>
                 <td><?php echo xss_clean($row['SERduration']); ?></td>
                 <td><?php echo xss_clean($row['SERdate']); ?></td>
                 <td><?php echo xss_clean($row['Tcode']); ?></td>
                 <td>
-                    <a href="edit_customer.php?customer_id=<?php echo $row['id']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="edit_plane.php?PLcode=<?php echo $row['PLcode']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                     <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['PLcode']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>

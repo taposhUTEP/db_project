@@ -12,10 +12,10 @@ if ($del_id && $_SERVER['REQUEST_METHOD'] == 'POST')
         exit;
 
 	}
-    $PEssn = $del_id;
+    $PLcode = $del_id;
 
     $db = getDbInstance();
-    $db->where('PLcode', $PEssn);
+    $db->where('PLcode', $PLcode);
     $status = $db->delete('plane');
     
     if ($status) 

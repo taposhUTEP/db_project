@@ -27,17 +27,17 @@ $rows = $db->arraybuilder()->paginate('personnel', 1, $select);
     </div> 
 
     <div class="form-group">
-        <label for="SUPssn">Supervisor SSN *</label>
-            <select name="SUPssn" class="form-control selectpicker" required>
+        <label for="PLtype">Plane Type *</label>
+            <select name="PLtype" class="form-control selectpicker" required>
                 <option value=" " >Select Supervisor</option>
                 <?php
                 foreach ($rows as $opt) {
-                    if ($edit && $opt['PEssn'] == $team['SUPssn']) {
+                    if ($edit && $opt['PEssn'] == $team['PLtype']) {
                         $sel = "selected";
                     } else {
                         $sel = "";
                     }
-                    echo '<option value="'.$opt['PEssn'].'"' . $sel . '>' . $opt['PEfname'] . ' '. $opt['PElname'] . '</option>';
+                    echo '<option value="'.$opt['PLtype'].'"' . $sel . '>' . $opt['PLtype'] . '</option>';
                 }
 
                 ?>
