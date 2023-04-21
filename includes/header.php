@@ -90,7 +90,7 @@
                                             <a href="customers.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
                                         </li>
                                         <li>
-                                            <a href="customers.php"><i class="fa fa-user fa-fw"></i>Employee</a>
+                                            <a href="customers.php"><i class="fa fa-user fa-fw"></i>Personnel</a>
                                         </li>
                                         <li>
                                             <a href="customers.php"><i class="fa fa-group fa-fw"></i>Team </a>
@@ -107,7 +107,7 @@
                                             <a href="add_customer.php"><i class="fa fa-plane fa-fw"></i>Aeroplane</a>
                                         </li>
                                         <li>
-                                            <a href="add_customer.php"><i class="fa fa-user fa-fw"></i>Employee</a>
+                                            <a href="add_customer.php"><i class="fa fa-user fa-fw"></i>Personnel</a>
                                         </li>
                                         <li>
                                             <a href="customers.php"><i class="fa fa-group fa-fw"></i>Team </a>

@@ -23,7 +23,7 @@ if (!$page) {
 
 // If filter types are not selected we show latest added data first
 if (!$filter_col) {
-	$filter_col = 'id';
+	$filter_col = 'PEssn';
 }
 if (!$order_by) {
 	$order_by = 'Desc';
@@ -31,13 +31,13 @@ if (!$order_by) {
 
 //Get DB instance. i.e instance of MYSQLiDB Library
 $db = getDbInstance();
-$select = array('id', 'f_name', 'l_name', 'gender', 'phone', 'created_at', 'updated_at');
+$select = array('PEssn', 'PEfname', 'PElname', 'PEstatus', 'PEbmonth', 'PEbyear', 'PEbday', 'PEgender', 'PEsalary');
 
 //Start building query according to input parameters.
 // If search string
 if ($search_string) {
-	$db->where('f_name', '%' . $search_string . '%', 'like');
-	$db->orwhere('l_name', '%' . $search_string . '%', 'like');
+	$db->where('PEfname', '%' . $search_string . '%', 'like');
+	$db->orwhere('PElname', '%' . $search_string . '%', 'like');
 }
 
 //If order by option selected
@@ -49,7 +49,7 @@ if ($order_by) {
 $db->pageLimit = $pagelimit;
 
 // Get result of the query.
-$rows = $db->arraybuilder()->paginate('customers', $page, $select);
+$rows = $db->arraybuilder()->paginate('personnel', $page, $select);
 $total_pages = $db->totalPages;
 
 include BASE_PATH . '/includes/header.php';
@@ -58,7 +58,7 @@ include BASE_PATH . '/includes/header.php';
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="page-header">Employees</h1>
+            <h1 class="page-header">Personnels</h1>
         </div>
         <div class="col-lg-6">
             <div class="page-action-links text-right">
@@ -109,29 +109,33 @@ if ($order_by == 'Desc') {
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
-                <th width="5%">ID</th>
-                <th width="45%">Name</th>
-                <th width="20%">Gender</th>
-                <th width="20%">Phone</th>
+                <th width="15%">SSN</th>
+                <th width="25%">Name</th>
+                <th width="5%">Gender</th>
+                <th width="20%">Birth Date</th>
+                <th width="15%">Salary</th>
+                <th width="10%">Status</th>
                 <th width="10%">Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo xss_clean($row['f_name'] . ' ' . $row['l_name']); ?></td>
-                <td><?php echo xss_clean($row['gender']); ?></td>
-                <td><?php echo xss_clean($row['phone']); ?></td>
+                <td><?php echo $row['PEssn']; ?></td>
+                <td><?php echo xss_clean($row['PEfname'] . ' ' . $row['PElname']); ?></td>
+                <td><?php echo xss_clean($row['PEgender']); ?></td>
+                <td><?php echo xss_clean($row['PEbmonth']) . '/'. xss_clean($row['PEbday']) . '/'. xss_clean($row['PEbyear']); ?></td>
+                <td><?php echo xss_clean($row['PEsalary']); ?></td>
+                <td><?php echo xss_clean($row['PEstatus']); ?></td>
                 <td>
                     <a href="edit_customer.php?customer_id=<?php echo $row['id']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['id']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['PEssn']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
             <!-- Delete Confirmation Modal -->
-            <div class="modal fade" id="confirm-delete-<?php echo $row['id']; ?>" role="dialog">
+            <div class="modal fade" id="confirm-delete-<?php echo $row['PEssn']; ?>" role="dialog">
                 <div class="modal-dialog">
-                    <form action="delete_customer.php" method="POST">
+                    <form action="delete_personnel.php" method="POST">
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -139,7 +143,7 @@ if ($order_by == 'Desc') {
                                 <h4 class="modal-title">Confirm</h4>
                             </div>
                             <div class="modal-body">
-                                <input type="hidden" name="del_id" id="del_id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="del_id" id="del_id" value="<?php echo $row['PEssn']; ?>">
                                 <p>Are you sure you want to delete this row?</p>
                             </div>
                             <div class="modal-footer">
@@ -158,7 +162,7 @@ if ($order_by == 'Desc') {
 
     <!-- Pagination -->
     <div class="text-center">
-    <?php echo paginationLinks($page, $total_pages, 'customers.php'); ?>
+    <?php echo paginationLinks($page, $total_pages, 'personnels.php'); ?>
     </div>
     <!-- //Pagination -->
 </div>
