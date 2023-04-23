@@ -16,7 +16,7 @@ if ($del_id && $_SERVER['REQUEST_METHOD'] == 'POST')
 
     $db = getDbInstance();
     $db->where('Tcode', $PEssn);
-    $status = $db->delete('team_v2');
+    $status = $db->delete('team');
     
     if ($status) 
     {

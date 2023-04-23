@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
     $db = getDbInstance();
     
-    $last_id = $db->insert('team_v2', $data_to_store);
+    $last_id = $db->insert('team', $data_to_store);
 
     if($last_id)
     {

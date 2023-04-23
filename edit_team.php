@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     
     $db = getDbInstance();
     $db->where('Tcode', $Tcode);
-    $stat = $db->update('team_v2', $data_to_update);
+    $stat = $db->update('team', $data_to_update);
 
     if($stat)
     {
@@ -39,7 +39,7 @@ if($edit)
 {
     $db->where('Tcode', $Tcode);
     //Get data to pre-populate the form.
-    $team = $db->getOne("team_v2");
+    $team = $db->getOne("team");
     //print_r($team);
 }
 ?>
