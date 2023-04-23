@@ -23,7 +23,7 @@ if (!$page) {
 
 // If filter types are not selected we show latest added data first
 if (!$filter_col) {
-	$filter_col = 'Tcode';
+	$filter_col = 'PLtype';
 }
 if (!$order_by) {
 	$order_by = 'Desc';
@@ -31,7 +31,7 @@ if (!$order_by) {
 
 //Get DB instance. i.e instance of MYSQLiDB Library
 $db = getDbInstance();
-$select = array('Tcode', 'Tstatus', 'SUPssn', 'Tairport_code', 'Tgate');
+$select = array('PLtype', 'PLmin_clean_time', 'PLmax_clean_time');
 
 //Start building query according to input parameters.
 // If search string
@@ -49,7 +49,7 @@ if ($order_by) {
 $db->pageLimit = $pagelimit;
 
 // Get result of the query.
-$rows = $db->arraybuilder()->paginate('team', $page, $select);
+$rows = $db->arraybuilder()->paginate('max_and_min_time_per_plcategory', $page, $select);
 $total_pages = $db->totalPages;
 
 include BASE_PATH . '/includes/header.php';
@@ -58,11 +58,11 @@ include BASE_PATH . '/includes/header.php';
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="page-header">Teams</h1>
+            <h1 class="page-header">Plane Type</h1>
         </div>
         <div class="col-lg-6">
             <div class="page-action-links text-right">
-                <a href="add_customer.php?operation=create" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add new</a>
+                <a href="add_plane_type.php?operation=create" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add new</a>
             </div>
         </div>
     </div>
@@ -76,31 +76,27 @@ include BASE_PATH . '/includes/header.php';
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
-                <th width="10%">Team Code</th>
-                <th width="20%">Team Status</th>
-                <th width="20%">Supervisor SSN</th>
-                <th width="10%">Airport Code</th>
-                <th width="20%">Gate</th>
+                <th width="10%">Plane Type</th>
+                <th width="20%">Minimum Cleaning Time</th>
+                <th width="20%">Maximum Cleaning Time</th>
                 <th width="20%">Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?php echo xss_clean($row['Tcode']); ?></td>
-                <td><?php echo xss_clean($row['Tstatus']); ?></td>
-                <td><?php echo xss_clean($row['SUPssn']); ?></td>
-                <td><?php echo xss_clean($row['Tairport_code']); ?></td>
-                <td><?php echo xss_clean($row['Tgate']); ?></td>
+                <td><?php echo xss_clean($row['PLtype']); ?></td>
+                <td><?php echo xss_clean($row['PLmin_clean_time']); ?></td>
+                <td><?php echo xss_clean($row['PLmax_clean_time']); ?></td>
                 <td>
-                    <a href="edit_team.php?Tcode=<?php echo $row['Tcode']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['Tcode']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a href="edit_plane_type.php?PLtype=<?php echo $row['PLtype']; ?>&operation=edit" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="#" class="btn btn-danger delete_btn" data-toggle="modal" data-target="#confirm-delete-<?php echo $row['PLtype']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
             <!-- Delete Confirmation Modal -->
-            <div class="modal fade" id="confirm-delete-<?php echo $row['Tcode']; ?>" role="dialog">
+            <div class="modal fade" id="confirm-delete-<?php echo $row['PLtype']; ?>" role="dialog">
                 <div class="modal-dialog">
-                    <form action="delete_team.php" method="POST">
+                    <form action="delete_plane_type.php" method="POST">
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -108,7 +104,7 @@ include BASE_PATH . '/includes/header.php';
                                 <h4 class="modal-title">Confirm</h4>
                             </div>
                             <div class="modal-body">
-                                <input type="hidden" name="del_id" id="del_id" value="<?php echo $row['Tcode']; ?>">
+                                <input type="hidden" name="del_id" id="del_id" value="<?php echo $row['PLtype']; ?>">
                                 <p>Are you sure you want to delete this row?</p>
                             </div>
                             <div class="modal-footer">
@@ -127,7 +123,7 @@ include BASE_PATH . '/includes/header.php';
 
     <!-- Pagination -->
     <div class="text-center">
-    <?php echo paginationLinks($page, $total_pages, 'teams.php'); ?>
+    <?php echo paginationLinks($page, $total_pages, 'plane_types.php'); ?>
     </div>
     <!-- //Pagination -->
 </div>

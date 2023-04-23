@@ -8,26 +8,26 @@ if ($del_id && $_SERVER['REQUEST_METHOD'] == 'POST')
 
 	if($_SESSION['admin_type']!='admin'){
 		$_SESSION['failure'] = "You don't have permission to perform this action";
-    	header('location: teams.php');
+    	header('location: plane_types.php');
         exit;
 
 	}
     $PEssn = $del_id;
 
     $db = getDbInstance();
-    $db->where('Tcode', $PEssn);
-    $status = $db->delete('team');
+    $db->where('PLtype', $PEssn);
+    $status = $db->delete('max_and_min_time_per_plcategory');
     
     if ($status) 
     {
-        $_SESSION['info'] = "team deleted successfully!";
-        header('location: teams.php');
+        $_SESSION['info'] = "plane_type deleted successfully!";
+        header('location: plane_types.php');
         exit;
     }
     else
     {
-    	$_SESSION['failure'] = "Unable to delete team";
-    	header('location: teams.php');
+    	$_SESSION['failure'] = "Unable to delete plane_type";
+    	header('location: plane_types.php');
         exit;
 
     }

@@ -5,7 +5,7 @@ require_once 'includes/auth_validate.php';
 
 
 // Sanitize if you want
-$Tcode = filter_input(INPUT_GET, 'Tcode', FILTER_VALIDATE_INT);
+$PLtype = filter_input(INPUT_GET, 'PLtype', FILTER_VALIDATE_INT);
 $operation = filter_input(INPUT_GET, 'operation', FILTER_SANITIZE_STRING); 
 ($operation == 'edit') ? $edit = true : $edit = false;
  $db = getDbInstance();
@@ -13,21 +13,21 @@ $operation = filter_input(INPUT_GET, 'operation', FILTER_SANITIZE_STRING);
 //Handle update request. As the form's action attribute is set to the same script, but 'POST' method, 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
-    //Get team id form query string parameter.
-    $Tcode = filter_input(INPUT_GET, 'Tcode', FILTER_SANITIZE_STRING);
+    //Get plane_type id form query string parameter.
+    $PLtype = filter_input(INPUT_GET, 'PLtype', FILTER_SANITIZE_STRING);
 
     //Get input data
     $data_to_update = filter_input_array(INPUT_POST);
     
     $db = getDbInstance();
-    $db->where('Tcode', $Tcode);
-    $stat = $db->update('team', $data_to_update);
+    $db->where('PLtype', $PLtype);
+    $stat = $db->update('max_and_min_time_per_plcategory', $data_to_update);
 
     if($stat)
     {
-        $_SESSION['success'] = "team updated successfully!";
+        $_SESSION['success'] = "plane_type updated successfully!";
         //Redirect to the listing page,
-        header('location: teams.php');
+        header('location: plane_types.php');
         //Important! Don't execute the rest put the exit/die. 
         exit();
     }
@@ -35,12 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
 //If edit variable is set, we are performing the update operation.
-if($edit)
+if(true)
 {
-    $db->where('Tcode', $Tcode);
+    print_r($_SERVER['QUERY_STRING']);
+    $db->where('PLtype', $PLtype);
     //Get data to pre-populate the form.
-    $team = $db->getOne("team");
-    //print_r($team);
+    $plane_type = $db->getOne("max_and_min_time_per_plcategory");
+    echo "Plane Type";
+    print_r($plane_type);
 }
 ?>
 
@@ -48,9 +50,10 @@ if($edit)
 <?php
     include_once 'includes/header.php';
 ?>
+<h1> Hello <?php echo '$plane_type';?></h1>
 <div id="page-wrapper">
     <div class="row">
-        <h2 class="page-header">Update team</h2>
+        <h2 class="page-header">Update plane_type</h2>
     </div>
     <!-- Flash messages -->
     <?php
@@ -61,7 +64,7 @@ if($edit)
         
         <?php
             //Include the common form for add and edit  
-            require_once('./forms/team_form.php'); 
+            require_once('./forms/plane_type_form.php'); 
         ?>
     </form>
 </div>

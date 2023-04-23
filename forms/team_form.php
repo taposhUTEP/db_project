@@ -17,7 +17,7 @@ $rows = $db->arraybuilder()->paginate('personnel', 1, $select);
     </div> 
 
     <div class="form-group">
-        <label for="Tstatus">Terminal Status *</label>
+        <label for="Tstatus">Team Status *</label>
         <label class="radio-inline">
             <input type="radio" name="Tstatus" value="Available" <?php echo ($edit && strcasecmp($team['Tstatus'], 'available')==0) ? "checked": "" ; ?> required="required"/> available
         </label>
@@ -27,17 +27,17 @@ $rows = $db->arraybuilder()->paginate('personnel', 1, $select);
     </div> 
 
     <div class="form-group">
-        <label for="PLtype">Plane Type *</label>
-            <select name="PLtype" class="form-control selectpicker" required>
+        <label for="SUPssn">Supervisor *</label>
+            <select name="SUPssn" class="form-control selectpicker" required>
                 <option value=" " >Select Supervisor</option>
                 <?php
                 foreach ($rows as $opt) {
-                    if ($edit && $opt['PEssn'] == $team['PLtype']) {
+                    if ($edit && $opt['PEssn'] == $team['SUPssn']) {
                         $sel = "selected";
                     } else {
                         $sel = "";
                     }
-                    echo '<option value="'.$opt['PLtype'].'"' . $sel . '>' . $opt['PLtype'] . '</option>';
+                    echo '<option value="'.$opt['PEssn'].'"' . $sel . '>' . $opt['PEssn'] . '</option>';
                 }
 
                 ?>
