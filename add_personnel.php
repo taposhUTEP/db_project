@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     //Mass Insert Data. Keep "name" attribute in html form same as column name in mysql table.
     $data_to_store = array_filter($_POST);
+    $data_to_store_for_phone = array();
 
     $db = getDbInstance();
     $year_mont_day = explode('-', $data_to_store['PEbdate']);
@@ -16,9 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $data_to_store['PEbmonth'] = $year_mont_day[1];
     $data_to_store['PEbday'] = $year_mont_day[2];
     unset($data_to_store['PEbdate']);
-    print_r($data_to_store); 
+    print_r($data_to_store);
+    
+    $data_to_store_for_phone['PEssn'] = $data_to_store['PEssn'];
+    $data_to_store_for_phone['PEphone_number'] = $data_to_store['PEphone_number'];
+    unset($data_to_store['PEphone_number']);
 
     $last_id = $db->insert('personnel', $data_to_store);
+
+    $db->insert('person_phone_number', $data_to_store_for_phone);
 
     if($last_id)
     {

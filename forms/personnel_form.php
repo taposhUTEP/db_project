@@ -34,6 +34,15 @@
         </label>
     </div>
 
+    <div class="form-group">
+        <label for="PEphone_number">Phone Number *</label>
+        <input type="text" name="PEphone_number" value="<?php echo htmlspecialchars($edit ? $personnel['PEphone_number'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Phone Number" class="form-control" required="required" id="PEphone_number">
+    </div>
+
+    <div class="form-group">
+        <label for="PEsalary">Salary *</label>
+        <input type="text" name="PEsalary" value="<?php echo htmlspecialchars($edit ? $personnel['PEsalary'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Salary" class="form-control" required="required" id="PEsalary">
+    </div>
 
     <div class="form-group text-center">
         <label></label>
