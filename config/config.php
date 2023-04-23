@@ -16,10 +16,10 @@ require_once BASE_PATH . '/helpers/helpers.php';
 |--------------------------------------------------------------------------
  */
 
-define('DB_HOST', "localhost");
-define('DB_USER', "root");
-define('DB_PASSWORD', "");
-define('DB_NAME', "db_project");
+define('DB_HOST', "dbserver.cs.utep.edu");
+define('DB_USER', "caibarra5");
+define('DB_PASSWORD', "jfjEV74#@");
+define('DB_NAME', "s23_mjv_team8");
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 /**
